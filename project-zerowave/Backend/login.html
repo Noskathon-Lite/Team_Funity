@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="container" id="signupDialog">
+      <h2>Create an Account</h2>
+      <form id="signupForm">
+        <input id="prompt" type="text" placeholder="Full Name" required />
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById("prompt").value;
+
+          if (!name) {
+            showAlert("Please fill out all fields.", true);
+            return;
+          }
+
+          const userData = {
+            fullname: name,
+          };
+
+          try {
+            const response = await fetch("http://127.0.0.1:5000/api/users", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(userData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+              showAlert(result.message, false);
+            } else {
+              showAlert("Error: " + result.error, true);
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            showAlert("An error occurred while submitting the form.", true);
+          }
+        });
+    </script>
+  </body>
+</html>
