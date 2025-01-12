@@ -12,7 +12,7 @@ export default function Login() {
   return (
     <>
     <div className="flex justify-center items-center " id="login">
-      <img src="/img/zerowave-logo.png" alt="logo" id="usrimg" />
+      
     
         <h2 className="text-xl font-[profeshhh] p-[43px]" id="title">zerowave-user</h2>
         <input type="password" placeholder="password (optional)" id="psd" autoComplete="new-password"/>

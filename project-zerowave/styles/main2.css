@@ -58,25 +58,14 @@ body::before {
     left: -13px;
   }
 
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  #usrimg {
-    animation: rotate 2s linear infinite;
-  }
+
 
   #ii
   {
     height: 118px;
   position: relative;
   top: 206px;
-  left: -49px;
+  left: 20px;
 
   }
   #psd::placeholder
@@ -99,4 +88,5 @@ body::before {
   {
     position: relative;
     top: -15px;
+    left: 80px;
   }
