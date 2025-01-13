@@ -8,6 +8,11 @@ export default function Login() {
   const [openApps, setOpenApps] = useState({});
   const [minimizedApps, setMinimizedApps] = useState({});
   const dragRefs = useRef({});
+  const [isRecording, setIsRecording] = useState(false);
+  const [recordedAudio, setRecordedAudio] = useState(null);
+
+  const mediaRecorderRef = useRef(null); // Use ref for mediaRecorder
+  const audioChunksRef = useRef([]); // Use ref for audio chunks
 
   const togglePopup = () => {
     setPopupVisible(!popupVisible);
@@ -52,10 +57,28 @@ export default function Login() {
 
   useEffect(() => {
     return () => {
-      // Clean up any mousemove event listeners when the component unmounts
       document.removeEventListener('mousemove', null);
     };
   }, []);
+  
+  const appContent = {
+    BioBuddy:
+    <div id="side-panel">
+      <img src="/img/biobuddy.png" alt="biobuddy" id="ll" /><img src="img/bio.png" alt="" id="ll2"/>
+      <input type="text" placeholder="Search Chats" id="search" /><img src="img/search.svg" id="srch" />
+      <button id="new">New Chat</button>
+      <p id="hstry">History</p>
+      <div id="center-panel">
+        <input type="text" placeholder="Ask Anything................" id="ask"/><img src="/img/send.svg" id="send" /><img src="/img/voice.svg" id="voice"></img>
+      </div>
+    </div>
+    
+    
+    ,
+    ClimaScope: <div><h3>ClimaScope</h3><p>ClimaScope helps you track global climate trends. View and analyze climate change data to understand the impact on our planet.</p></div>,
+    ZeroWaste: <div><h3>ZeroWaste</h3><p>ZeroWaste offers solutions for managing waste effectively. Learn how to reduce, reuse, and recycle to help minimize environmental impact.</p></div>,
+    ZeroWave: <div><h3>ZeroWave</h3><p>ZeroWave is your gateway to sustainable technologies and initiatives aimed at climate action. Join us in making a change!</p></div>
+  };
 
   return (
     <>
@@ -113,7 +136,7 @@ export default function Login() {
                 <button onClick={() => handleClose(app)} id="x2">X</button>
               </div>
               <div className="app-content">
-                <p>Welcome to {app}!</p>
+                {appContent[app]}
               </div>
             </div>
           )
@@ -144,6 +167,7 @@ export default function Login() {
               </div>
             )
         )}
+        
       </section>
     </>
   );

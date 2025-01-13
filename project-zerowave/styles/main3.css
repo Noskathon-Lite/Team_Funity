@@ -363,3 +363,129 @@ margin-right: 5px;
 .taskbar-item span {
 font-size: 16px;
 }
+#side-panel
+{
+  background-color: #cdd5ce;
+  width: 21%;
+  height: 560px;
+  position: relative;
+  top: -10px;
+  left: -10px;
+}
+#ll
+{
+  height: 64px;
+  position: relative;
+  top: 15px;
+  left: 10px;
+}
+#ll2
+{
+  position: relative;
+  top: -127px;
+  height: 229px;
+  left: 48px;
+}
+#search
+{
+  height: 39px;
+  border-radius: 7px;
+  font-size: 15px;
+  font-family: profeshhh;
+  padding: 11px;
+  margin-left: -1p;
+  text-align: center;
+  position: relative;
+  top: -199px;
+  background: #ece6e6;
+}
+#search::placeholder
+{
+    color:black;
+}
+#search:focus
+{
+  outline: none;
+}
+#srch
+{
+  height: 24px;
+  position: relative;
+  top: -230px;
+  left: 19px;
+  cursor: pointer;
+}
+#new
+{
+  background: #89d682;
+  padding: 5px;
+  width: 201px;
+  font-size: 18px;
+  font-family: profeshhh;
+  position: relative;
+  top: -202px;
+  border-radius: 21px;
+}
+#new:hover
+{
+  background: #878f87;
+}
+#hstry
+{
+  font-size: 13px;
+  position: relative;
+  top: -177px;
+  left: -83px;
+  color: #595555;
+}
+#ask
+{
+  padding: 15px;
+  position: relative;
+  left: 308px;
+  width: 889px;
+  border-radius: 44px;
+  top: 78px;
+  font-family: profeshhh;
+  color: #000;
+  background: #d7d1dd;
+
+}
+#ask::placeholder
+{
+  color:rgb(74, 73, 73);
+  font-family: profeshhh;
+}
+#ask:focus
+{
+  outline: none;
+}
+#send
+{
+  height: 29px;
+  cursor: pointer;
+  position: relative;
+  left: 1149px;
+  top: 35px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+#voice
+{
+  height: 43px;
+  position: relative;
+  left: 1098px;
+}
+#voice {
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+#voice:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+#send:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
