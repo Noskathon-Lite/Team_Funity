@@ -2,15 +2,40 @@
 import { useState, useRef, useEffect } from "react";
 import styles from '../../styles/main3.css';
 import Link from 'next/link';
+import image from "next/image";
+
 import axios from "axios";  // Import axios for making requests
 
 export default function Login() {
+  const [filePreview, setFilePreview] = useState(null); // State to store the file data
+  const [filePreviewVisible, setFilePreviewVisible] = useState(false); // State to control visibility
   const [popupVisible, setPopupVisible] = useState(false);
   const [openApps, setOpenApps] = useState({});
   const [minimizedApps, setMinimizedApps] = useState({});
   const dragRefs = useRef({});
   const [ask, setAsk] = useState(""); // State for input data
   const [response, setResponse] = useState(""); // State for the API response
+
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setFilePreview(event.target.result); // Set the file's data URL
+      };
+      reader.readAsDataURL(file); // Read the file as a data URL
+    }
+  };
+  
+  // Show the preview only after clicking the button
+  const handleShowPreview = () => {
+    if (filePreview) {
+      setFilePreviewVisible(true);
+    } else {
+      alert("Please select a file first!");
+    }
+  };
 
   const togglePopup = () => {
     setPopupVisible(!popupVisible);
@@ -28,10 +53,14 @@ export default function Login() {
         console.error("Error:", error);
       });
   };
-  
+
+
 
   const handleInputChange = (e) => {
     setAsk(e.target.value); // Update ask state on input change
+  };
+  const handleInputChange2 = (e) => {
+    setAsk2(e.target.value); // Update ask state on input change
   };
   const handleDoubleClick = (appName) => {
     setOpenApps((prev) => ({ ...prev, [appName]: true }));
@@ -82,7 +111,6 @@ export default function Login() {
       <img src="/img/biobuddy.png" alt="biobuddy" id="ll" /><img src="img/bio.png" alt="" id="ll2"/>
       <input type="text" placeholder="Search Chats" id="search" /><img src="img/search.svg" id="srch" />
       <button id="new">New Chat</button>
-      <p id="hstry">History</p>
       <div id="center-panel">
   <input 
     type="text" 
@@ -102,15 +130,49 @@ export default function Login() {
   {response && <div id="response">{response}</div>} {/* This will show the response if it's available */}
 </div>
 
-      
     
     </div>
     
     
     ,
-    ClimaScope: <div><h3>ClimaScope</h3><p>ClimaScope helps you track global climate trends. View and analyze climate change data to understand the impact on our planet.</p></div>,
-    ZeroWaste: <div><h3>ZeroWaste</h3><p>ZeroWaste offers solutions for managing waste effectively. Learn how to reduce, reuse, and recycle to help minimize environmental impact.</p></div>,
-    ZeroWave: <div><h3>ZeroWave</h3><p>ZeroWave is your gateway to sustainable technologies and initiatives aimed at climate action. Join us in making a change!</p></div>
+    ClimaScope: 
+    <div>
+        <img src="/img/line_graph3.png" id="g1" />
+        <img src="/img/line_graph2.png" id="g2" />
+        <img src="/img/line_graph1.png" id="g3" />
+    </div>,
+    ZeroWaste: 
+<div>
+  <img src="/img/test.jpg" id="test"/>
+  <p id="test2">To recycle a plastic bottle, you can: 
+Empty and rinse: Remove any food, liquid, or residue. Leftover liquids can contaminate other recyclables and damage machinery. 
+Leave on labels: The labels will be removed during the recycling process. 
+Squash bottles: This saves space at the processing facility. 
+Replace lids and tops: If the lid stays on, it will be recycled along with the bottle. 
+Find a recycling center: You can use Earth 911 to find a recycling center or community drop-off program in your area. Your city or municipality should also provide a list of recycling options. 
+Recycling plastic is important because it can: Conserve fossil fuels, Reduce energy consumption, Reduce landfill waste, and Reduce carbon dioxide emissions. </p>
+  {/* File Input */}
+  <input type="text" placeholder="Enter Path of File:"  id="image" />
+ 
+
+  {/* Send SVG Button */}
+  <button> <img src="/img/for.svg" id="fo" /></button>
+
+  {/* Display the file preview only after clicking the button */}
+  {filePreviewVisible && (
+    <div id="file-preview">
+      <img src={filePreview} alt="Preview" id="preview-img" />
+    </div>
+  )}
+</div>,
+
+    ZeroWave: 
+    <div>
+      <img src="/img/zoom.png" id="lulu" /><h2 id="lulu2">ZeroWave</h2>
+      <section id="sec1"><img src="/img/biobuddy.png" id="bb" /><p id="bb2">BIOBUDDY</p><p id="bb3">an AI chatbot designed to educate, guide users towards climate actions and its changes. It offers personalized recommendations, tips, and insights on giving knowledge about climate and its changes on environment.</p></section>
+      <section id="sec2"><img src="/img/climascope.png" id="cc" /><p id="cc2">CLIMASCOPE</p><p id="cc3">ClimaScope uses open-source environmental data to visualize and analyze climate change and pollution nation wide . This provides localized data about the climate change and pollution among the nation.</p></section>
+      <section id="sec3"><img src="/img/zerowaste.png" id="zz" /><p id="zz2">ZEROWASTE</p><p id="zz3">ZeroWaste uses AI to identify recyclable materials and provide recycling instructions. Users can upload images of waste materials, and the system will guide them in sustainable waste disposal methods.</p></section>
+    </div>
   };
 
   return (
