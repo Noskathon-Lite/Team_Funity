@@ -144,7 +144,7 @@ export default function Login() {
     ZeroWaste: 
 <div>
   <img src="/img/test.jpg" id="test"/>
-  <p id="test2">To recycle a plastic bottle, you can: 
+  <p>To recycle a plastic bottle, you can: 
 Empty and rinse: Remove any food, liquid, or residue. Leftover liquids can contaminate other recyclables and damage machinery. 
 Leave on labels: The labels will be removed during the recycling process. 
 Squash bottles: This saves space at the processing facility. 

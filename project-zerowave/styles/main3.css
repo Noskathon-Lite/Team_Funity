@@ -16,7 +16,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #e4f0d0;
+  background-color: #588157;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -132,7 +132,7 @@ position: relative;
 border-radius: 7px;
 left: 35px;
 top: -40px;
-background-color: rgb(222, 226, 226);
+background-color:  #939f9f;
 }
 
 
@@ -167,7 +167,7 @@ background-color: rgb(222, 226, 226);
   border-radius: 7px;
   left: -36px;
   top: 220px;
-  background-color:rgb(222, 226, 226);
+  background-color: #939f9f;
 }
 
 
@@ -202,7 +202,7 @@ background-color: rgb(222, 226, 226);
   border-radius: 7px;
   left: -116px;
   top: 86px;
-  background-color: rgb(222, 226, 226);
+  background-color: #939f9f;
 }
 
 
@@ -237,7 +237,7 @@ position: relative;
 border-radius: 7px;
 left: -190px;
 top: 354px;
-background-color: rgb(222, 226, 226);
+background-color: #939f9f;
 }
 
 
@@ -269,8 +269,8 @@ background-color: rgb(222, 226, 226);
   position: absolute;
   top: 4%;
   left: 0%;
-  width: 1249px;
-  height: 598px;
+  width: 1280px;
+  height: 633px;
   background-color: #9ea693;
   border-radius: 5px;
   z-index: 10;
@@ -344,14 +344,14 @@ font-size: 16px;
 }
 
 .taskbar-item {
-display: flex;
-align-items: center;
-margin: 0 10px;
-padding: 0px;
-background-color: rgb(208, 210, 210);
-border: 1px solid #ccc;
-border-radius: 4px;
-cursor: pointer;
+  display: flex;
+      align-items: center;
+      margin: 10px 14px;
+      padding: 2px;
+      background-color: #adb3b3;
+      border: 1px solid #30343f;
+      border-radius: 4px;
+      cursor: pointer;
 }
 
 .taskbar-item img {
@@ -365,9 +365,9 @@ font-size: 16px;
 }
 #side-panel
 {
-  background-color: #cdd5ce;
+  background-color: #a8cbad;
   width: 21%;
-  height: 560px;
+  height: 595px;
   position: relative;
   top: -10px;
   left: -10px;
@@ -412,7 +412,7 @@ font-size: 16px;
   height: 24px;
   position: relative;
   top: -230px;
-  left: 19px;
+  left: 26px;
   cursor: pointer;
 }
 #new
@@ -448,7 +448,7 @@ font-size: 16px;
   top: 78px;
   font-family: profeshhh;
   color: #000;
-  background: #d7d1dd;
+  background: #b0aab5;
 
 }
 #ask::placeholder
@@ -488,4 +488,197 @@ font-size: 16px;
 #send:hover {
   transform: scale(1.1);
   opacity: 0.8;
+}
+#response
+{
+  position: relative;
+    top: -558px;
+    width: 988px;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    font-family: profeshhh;
+    background: #655a5a;
+    height: 419px;
+    left: 279px;
+    border-radius: 35px;
+}
+#center-panel
+{
+  position: relative;
+    top: 55px;
+}
+#test
+{
+  height: 402px;
+}
+#image
+{
+  padding: 12px;
+    font-size: 18px;
+    background: #708271;
+    border-radius: 44px;
+    font-family: profeshhh;
+    position: relative;
+    color: black;
+    top: 63px;
+    width: 605px;
+}
+#image:focus
+{
+  outline: none;
+}
+#fo
+{
+  height: 70px;
+  position: relative;
+  top: 98px;
+  cursor: pointer;
+}
+#file-preview {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#preview-img {
+  max-width: 300px;
+  max-height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#g1
+{
+  height: 562px;
+    margin-left: 499px;
+    margin-top: 8px;
+    opacity: 75%  ;
+    width: 759px;
+}
+#g2
+{
+  height: 276px;
+    position: relative;
+    top: -564px;
+    left: 22px;
+    opacity: 75%;
+}
+#g3
+{
+  position: relative;
+    top: -551px;
+    height: 276px;
+    left: 21px;
+    opacity: 75%;
+}
+#lulu
+{
+  height: 119px;
+    position: relative;
+    left: 466px;
+    top: -7px;
+}
+#test2
+{
+  font-family: profeshhh;
+  font-size: 15px;
+  height: 19px;
+}
+#lulu2
+{
+  font-size: 34px;
+    font-family: profeshhh;
+    margin-left: 115px;
+    margin-top: -88px;
+}
+#sec1
+{
+  height: 426px;
+    background: #708465;
+    top: 50px;
+    width: 338px;
+    border-radius: 22px;
+    border: 2px solid black;
+    position: relative;
+    left: 20px;
+}
+#sec2
+{
+  height: 426px;
+    background: #708465;
+    top: -375px;
+    width: 338px;
+    border-radius: 22px;
+    border: 2px solid black;
+    position: relative;
+    left: 460px;
+}
+#sec3
+{
+  height: 426px;
+    background: #708465;
+    top: -805px;
+    width: 338px;
+    border-radius: 22px;
+    border: 2px solid black;
+    position: relative;
+    left: 900px;
+}
+#bb
+{
+  height: 100px;
+  position: relative;
+  left: 30px;
+  top: 6px;
+}
+#bb2
+{
+  font-size: 29px;
+  font-family: profeshhh;
+  margin-top: -55px;
+  margin-left: 115px;
+}
+#cc{
+  height: 80px;
+  position: relative;
+  left: 35px;
+  top: 13px;
+}
+#cc2
+{
+  font-size: 26px;
+  font-family: profeshhh;
+  margin-top: -40px;
+  margin-left: 115px;
+}
+#zz{
+  height: 80px;
+  position: relative;
+  left: 35px;
+  top: 13px;
+}
+#zz2
+{
+  font-size: 26px;
+  font-family: profeshhh;
+  margin-top: -40px;
+  margin-left: 110px;
+}
+#bb3
+{
+  font-size: 18px;
+    margin-top: 58px;
+    font-family: profeshhh;
+}
+#cc3
+{
+  font-size: 18px;
+    margin-top: 58px;
+    font-family: profeshhh;
+}
+#zz3
+{
+  font-size: 18px;
+    margin-top: 58px;
+    font-family: profeshhh;
 }
