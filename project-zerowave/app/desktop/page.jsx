@@ -2,22 +2,37 @@
 import { useState, useRef, useEffect } from "react";
 import styles from '../../styles/main3.css';
 import Link from 'next/link';
+import axios from "axios";  // Import axios for making requests
 
 export default function Login() {
   const [popupVisible, setPopupVisible] = useState(false);
   const [openApps, setOpenApps] = useState({});
   const [minimizedApps, setMinimizedApps] = useState({});
   const dragRefs = useRef({});
-  const [isRecording, setIsRecording] = useState(false);
-  const [recordedAudio, setRecordedAudio] = useState(null);
-
-  const mediaRecorderRef = useRef(null); // Use ref for mediaRecorder
-  const audioChunksRef = useRef([]); // Use ref for audio chunks
+  const [ask, setAsk] = useState(""); // State for input data
+  const [response, setResponse] = useState(""); // State for the API response
 
   const togglePopup = () => {
     setPopupVisible(!popupVisible);
   };
+  
+  const handleSendClick = () => {
+    // Send the data to Flask backend using Axios
+    axios.post('http://localhost:5000/api/users', { ask })  // <-- Update the URL here
+      .then((response) => {
+        // Handle success, store the answer in state
+        console.log(response.data);
+        setResponse(response.data.answer);  // Display the answer from the API
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+  
 
+  const handleInputChange = (e) => {
+    setAsk(e.target.value); // Update ask state on input change
+  };
   const handleDoubleClick = (appName) => {
     setOpenApps((prev) => ({ ...prev, [appName]: true }));
     setMinimizedApps((prev) => ({ ...prev, [appName]: false }));
@@ -69,8 +84,26 @@ export default function Login() {
       <button id="new">New Chat</button>
       <p id="hstry">History</p>
       <div id="center-panel">
-        <input type="text" placeholder="Ask Anything................" id="ask"/><img src="/img/send.svg" id="send" /><img src="/img/voice.svg" id="voice"></img>
-      </div>
+  <input 
+    type="text" 
+    placeholder="Ask Anything................" 
+    id="ask" 
+    value={ask} 
+    onChange={handleInputChange} // Update state on input change
+  />
+  <img 
+    src="/img/send.svg" 
+    id="send" 
+    onClick={handleSendClick} // Trigger the send request when clicked
+  />
+  <img src="/img/voice.svg" id="voice"></img>
+    
+  {/* Display the response below the input field */}
+  {response && <div id="response">{response}</div>} {/* This will show the response if it's available */}
+</div>
+
+      
+    
     </div>
     
     
@@ -169,6 +202,7 @@ export default function Login() {
         )}
         
       </section>
+      
     </>
   );
 }
